@@ -2,11 +2,12 @@
 
 # Default GITHUB_SHA
 tag="${GITHUB_SHA}"
-
+echo "cont=true" >> $GITHUB_ENV
 # If release parse the tag name from GITHUB_REF
 if [ "${GITHUB_EVENT_NAME}" == "release" ]; then
   ref="${GITHUB_REF}"
-  tag=$(echo $GITHUB_REF | sed 's/refs\/tags\///g')
+  tag="GETBACK"
+  echo "cont=false" >> $GITHUB_ENV
 fi
 
 echo "::set-output name=tag::$tag"
