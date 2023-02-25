@@ -11,3 +11,4 @@ if [ "${GITHUB_EVENT_NAME}" == "release" ]; then
 fi
 
 echo "::set-output name=tag::$tag"
+echo "sha=$tag" >> $GITHUB_ENV
